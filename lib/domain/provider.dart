@@ -5,8 +5,6 @@ final class MoneyAppProvider extends ChangeNotifier {
   final TextEditingController comment = TextEditingController();
   final TextEditingController sum = TextEditingController();
 
-  final List priceList = [];
-  final List commentList = [];
   bool isIncomeBool = false;
 
   List<Map<String, dynamic>> transaction = [];
@@ -15,8 +13,7 @@ final class MoneyAppProvider extends ChangeNotifier {
     if (sum.text.isNotEmpty) {
       int amount = int.parse(sum.text);
       if (amount > 0) {
-        String clearDate =
-            DateFormat('dd.MM.yyyy • H:mm').format(DateTime.now());
+        String clearDate = DateFormat('dd.MM.yyyy • H:mm').format(DateTime.now());
         final Map<String, dynamic> trans = {
           "isIncome": isIncomeBool,
           "amount": amount,

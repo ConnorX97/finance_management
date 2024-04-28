@@ -10,7 +10,6 @@ class FullChartView extends StatefulWidget {
 class _FullChartViewState extends State<FullChartView> {
   @override
   Widget build(BuildContext context) {
-    bool isIncome = true;
     final model = Provider.of<MoneyAppProvider>(context);
     return SingleChildScrollView(
       child: Column(
@@ -223,7 +222,6 @@ class IncomeCircle extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
 
