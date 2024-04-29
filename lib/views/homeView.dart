@@ -14,13 +14,25 @@ class _HomePageState extends State<HomePage> {
   List<Widget> views = <Widget>[
     const HomeView(),
     const DetailScreen(),
-    FullChartView(),
+    const FullChartView(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title:
+            (() {
+          switch (currentIndex) {
+            case 0:
+              return const Text("Home");
+            case 1:
+              return const Text("Details");
+            case 2:
+              return const Text("History");
+            default:
+              return null;
+          }
+        })(),
       ),
       body: views[currentIndex],
       bottomNavigationBar: Padding(

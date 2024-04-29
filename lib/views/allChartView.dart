@@ -18,5 +18,3 @@ class _FullChartViewState extends State<FullChartView> {
     );
   }
 }
-
-// need to be optimized
