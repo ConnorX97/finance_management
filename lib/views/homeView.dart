@@ -1,3 +1,5 @@
+import 'package:finance_management/views/tabbar.dart';
+
 import '../domain/exporters.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,7 +11,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
-  List<Widget> views = <Widget>[HomeView(), FullChartView()];
+  List<Widget> views = <Widget>[
+    const HomeView(),
+    const CustomTabBarView(),
+    FullChartView(),
+    
+    
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,30 +25,37 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Home"),
       ),
       body: views[currentIndex],
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: currentIndex,
-        onTap: (value) {
-          setState(() {
-            currentIndex = value;
-          });
-        },
-        items: [
-          SalomonBottomBarItem(
-              icon: const Icon(Icons.home),
-              title: const Text("Main"),
-              selectedColor: Colors.purple),
-          SalomonBottomBarItem(
-              icon: const Icon(Icons.list),
-              title: const Text("Details"),
-              selectedColor: Colors.green),
-        ],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: SalomonBottomBar(
+          currentIndex: currentIndex,
+          onTap: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          items: [
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.home),
+                title: const Text("Main"),
+                selectedColor: Colors.purple),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.view_carousel),
+                title: const Text("Details"),
+                selectedColor: Colors.blue),
+            SalomonBottomBarItem(
+                icon: const Icon(Icons.list),
+                title: const Text("History"),
+                selectedColor: Colors.green),
+          ],
+        ),
       ),
     );
   }
 }
 
 class HomeView extends StatelessWidget {
-  HomeView({
+ const HomeView({
     super.key,
   });
 

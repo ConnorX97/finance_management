@@ -9,3 +9,6 @@ export 'package:finance_management/views/widgets/transactionHistoryItem.dart';
 export 'package:finance_management/app.dart';
 export 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 export 'package:finance_management/views/allChartView.dart';
+export 'package:buttons_tabbar/buttons_tabbar.dart';
+export 'package:finance_management/domain/exporters.dart';
+export 'package:fl_chart/fl_chart.dart';
