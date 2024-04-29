@@ -1,9 +1,7 @@
-
-
 import '../domain/exporters.dart';
 
-class CustomTabBarView extends StatelessWidget {
-  const CustomTabBarView({super.key});
+class DetailScreen extends StatelessWidget {
+  const DetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +15,9 @@ class CustomTabBarView extends StatelessWidget {
               ButtonsTabBar(
                 backgroundColor: Colors.grey[300],
                 unselectedBackgroundColor: Colors.grey[200],
-                unselectedLabelStyle: TextStyle(color: Colors.black),
-                labelStyle:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                unselectedLabelStyle: const TextStyle(color: Colors.black),
+                labelStyle: const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold),
                 tabs: const [
                   Tab(
                     child: SizedBox(
@@ -44,55 +42,75 @@ class CustomTabBarView extends StatelessWidget {
                 ],
               ),
               Expanded(
-                child: TabBarView(
-                  children: <Widget>[
-                    Center(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              IncomeCircle(model: model),
-                              const Text(
-                                "Income",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black26),
-                              ),
-                            ],
-                          ),
-                          IncomeDetail(model: model)
-                        ],
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+                  height: 600,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 4,
+                            spreadRadius: 0.1,
+                            offset: Offset(0, 2))
+                      ]),
+                  child: TabBarView(
+                    children: <Widget>[
+                      Center(
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                IncomeCircle(model: model),
+                                const Text(
+                                  "Income",
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black26),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: IncomeDetail(model: model),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    Center(
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 16,
-                          ),
-                          Stack(
-                            alignment: Alignment.center,
-                            children: [
-                              ExpenseCircle(model: model),
-                              const Text(
-                                "Expense",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black26),
-                              ),
-                            ],
-                          ),
-                          ExpenseDetail(model: model)
-                        ],
+                      Center(
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 16,
+                            ),
+                            Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                ExpenseCircle(model: model),
+                                const Text(
+                                  "Expense",
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black26),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ExpenseDetail(model: model),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -104,7 +122,7 @@ class CustomTabBarView extends StatelessWidget {
 }
 
 class ExpenseDetail extends StatelessWidget {
-  ExpenseDetail({super.key, required this.model});
+  const ExpenseDetail({super.key, required this.model});
 
   final MoneyAppProvider model;
 

@@ -1,4 +1,4 @@
-import 'package:finance_management/views/tabbar.dart';
+import 'package:finance_management/views/detailScreen.dart';
 
 import '../domain/exporters.dart';
 
@@ -13,10 +13,8 @@ class _HomePageState extends State<HomePage> {
   int currentIndex = 0;
   List<Widget> views = <Widget>[
     const HomeView(),
-    const CustomTabBarView(),
+    const DetailScreen(),
     FullChartView(),
-    
-    
   ];
   @override
   Widget build(BuildContext context) {
@@ -55,7 +53,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class HomeView extends StatelessWidget {
- const HomeView({
+  const HomeView({
     super.key,
   });
 
@@ -127,7 +125,7 @@ class HomeView extends StatelessWidget {
                         spreadRadius: 0.1,
                         offset: Offset(0, 2))
                   ]),
-              margin: const EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 18),
               width: double.infinity,
               height: 300,
               child: const TransactionList(),
