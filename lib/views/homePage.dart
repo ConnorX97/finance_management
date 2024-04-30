@@ -1,4 +1,4 @@
-import 'package:finance_management/views/detailScreen.dart';
+import 'package:finance_management/views/detailPage.dart';
 
 import '../domain/exporters.dart';
 

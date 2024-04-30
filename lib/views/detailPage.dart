@@ -43,7 +43,7 @@ class DetailScreen extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+                  margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
                   height: 600,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
