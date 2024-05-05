@@ -1,4 +1,5 @@
 // ignore_for_file: must_be_immutable
+
 import '../../domain/exporters.dart';
 
 class IncomeAndOutcomeView extends StatefulWidget {
@@ -63,42 +64,24 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
     );
   }
 
+
   DropdownButton<String> expenceCategory() {
     return DropdownButton<String>(
-      items: const [
-        DropdownMenuItem(
-          value: "Other",
-          child: Text("Other"),
-        ),
-        DropdownMenuItem(
-          value: "Education",
-          child: Text("Education"),
-        ),
-        DropdownMenuItem(
-          value: "Entertaiment",
-          child: Text("Entertaiment"),
-        ),
-        DropdownMenuItem(
-          value: "Health & Mediacal",
-          child: Text("Health & Mediacal"),
-        ),
-        DropdownMenuItem(
-          value: "Groceries",
-          child: Text("Groceries"),
-        ),
-        DropdownMenuItem(
-          value: "Transportation",
-          child: Text("Transportation"),
-        ),
-        DropdownMenuItem(
-          value: "Dining",
-          child: Text("Dining"),
-        ),
-        DropdownMenuItem(
-          value: "Clothing",
-          child: Text("Clothing"),
-        ),
-      ],
+      items: [
+        "Other",
+        "Education",
+        "Entertainment",
+        "Health & Medical",
+        "Groceries",
+        "Transportation",
+        "Dining",
+        "Clothing",
+      ].map((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
       onChanged: (value) {
         setState(() {
           _categ = value!;
@@ -110,32 +93,19 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
 
   DropdownButton<String> incomeCategory() {
     return DropdownButton<String>(
-      items: const [
-        DropdownMenuItem(
-          value: "Other",
-          child: Text("Other"),
-        ),
-        DropdownMenuItem(
-          value: "Employment",
-          child: Text("Employment"),
-        ),
-        DropdownMenuItem(
-          value: "Investment",
-          child: Text("Investment"),
-        ),
-        DropdownMenuItem(
-          value: "Rental",
-          child: Text("Rental"),
-        ),
-        DropdownMenuItem(
-          value: "Business",
-          child: Text("Business"),
-        ),
-        DropdownMenuItem(
-          value: "Financial support",
-          child: Text("Financial support"),
-        ),
-      ],
+      items: [
+        "Other",
+        "Employment",
+        "Investment",
+        "Rental",
+        "Business",
+        "Financial support",
+      ].map((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
       onChanged: (value) {
         setState(() {
           _categ = value!;
@@ -144,41 +114,41 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
       value: _categ,
     );
   }
-}
 
-void expenseCategorySelect(final model, final categ) {
-  if (categ == "Education") {
-    model.education += int.parse(model.sum.text);
-  } else if (categ == "Entertaiment") {
-    model.entertainment += int.parse(model.sum.text);
-  } else if (categ == "Health & Mediacal") {
-    model.health += int.parse(model.sum.text);
-  } else if (categ == "Groceries") {
-    model.groceries += int.parse(model.sum.text);
-  } else if (categ == "Transportation") {
-    model.transportation += int.parse(model.sum.text);
-    ();
-  } else if (categ == "Dining") {
-    model.dining += int.parse(model.sum.text);
-  } else if (categ == "Clothing") {
-    model.clothing += int.parse(model.sum.text);
-  } else if (categ == "Other") {
-    model.other += int.parse(model.sum.text);
+  void expenseCategorySelect(final model, final categ) {
+    if (categ == "Education") {
+      model.education += int.parse(model.sum.text);
+    } else if (categ == "Entertaiment") {
+      model.entertainment += int.parse(model.sum.text);
+    } else if (categ == "Health & Mediacal") {
+      model.health += int.parse(model.sum.text);
+    } else if (categ == "Groceries") {
+      model.groceries += int.parse(model.sum.text);
+    } else if (categ == "Transportation") {
+      model.transportation += int.parse(model.sum.text);
+      ();
+    } else if (categ == "Dining") {
+      model.dining += int.parse(model.sum.text);
+    } else if (categ == "Clothing") {
+      model.clothing += int.parse(model.sum.text);
+    } else if (categ == "Other") {
+      model.other += int.parse(model.sum.text);
+    }
   }
-}
 
-void incomeCategorySelect(final model, final categ) {
-  if (categ == "Employment") {
-    model.employment += int.parse(model.sum.text);
-  } else if (categ == "Investment") {
-    model.investment += int.parse(model.sum.text);
-  } else if (categ == "Rental") {
-    model.rental += int.parse(model.sum.text);
-  } else if (categ == "Business") {
-    model.business += int.parse(model.sum.text);
-  } else if (categ == "Financial support") {
-    model.financialSupport += int.parse(model.sum.text);
-  } else if (categ == "Other") {
-    model.otherInc += int.parse(model.sum.text);
+  void incomeCategorySelect(final model, final categ) {
+    if (categ == "Employment") {
+      model.employment += int.parse(model.sum.text);
+    } else if (categ == "Investment") {
+      model.investment += int.parse(model.sum.text);
+    } else if (categ == "Rental") {
+      model.rental += int.parse(model.sum.text);
+    } else if (categ == "Business") {
+      model.business += int.parse(model.sum.text);
+    } else if (categ == "Financial support") {
+      model.financialSupport += int.parse(model.sum.text);
+    } else if (categ == "Other") {
+      model.otherInc += int.parse(model.sum.text);
+    }
   }
 }

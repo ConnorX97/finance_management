@@ -20,8 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            (() {
+        title: (() {
           switch (currentIndex) {
             case 0:
               return const Text("Home");
@@ -72,61 +71,62 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = Provider.of<MoneyAppProvider>(context);
-    return SingleChildScrollView(
-      child: SizedBox(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: MainCardWidget(
-                received: model.received,
-                sent: model.sent,
-                totalBalance: model.totalBalance,
+    return SizedBox(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: MainCardWidget(
+              received: model.received,
+              sent: model.sent,
+              totalBalance: model.totalBalance,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => IncomeAndOutcomeView(
+                      isIncome: true,
+                    ),
+                  );
+                },
+                child: const Text("Income"),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => IncomeAndOutcomeView(
-                        isIncome: true,
-                      ),
-                    );
-                  },
-                  child: const Text("Income"),
+              const SizedBox(
+                width: 32,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => IncomeAndOutcomeView(
+                      isIncome: false,
+                    ),
+                  );
+                },
+                child: const Text("Expense"),
+              ),
+            ],
+          ),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 12, bottom: 12),
+                child: Text(
+                  "Transactions",
+                  style: TextStyle(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(
-                  width: 32,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => IncomeAndOutcomeView(
-                        isIncome: false,
-                      ),
-                    );
-                  },
-                  child: const Text("Expense"),
-                ),
-              ],
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 12, bottom: 12),
-                  child: Text(
-                    "Transactions",
-                    style: TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ],
-            ),
-            Container(
+              ),
+            ],
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.only(bottom: 16),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
                   color: Colors.white,
@@ -139,11 +139,10 @@ class HomeView extends StatelessWidget {
                   ]),
               margin: const EdgeInsets.symmetric(horizontal: 18),
               width: double.infinity,
-              height: 300,
               child: const TransactionList(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

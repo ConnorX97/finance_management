@@ -1,7 +1,3 @@
-
-
-
-
 import '../../domain/exporters.dart';
 
 class TransactionList extends StatelessWidget {
