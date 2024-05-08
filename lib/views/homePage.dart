@@ -1,5 +1,3 @@
-import 'package:finance_management/views/detailPage.dart';
-
 import '../domain/exporters.dart';
 
 class HomePage extends StatefulWidget {
@@ -126,17 +124,18 @@ class HomeView extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.only(bottom: 16),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  color: Colors.white,
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 4,
-                        spreadRadius: 0.1,
-                        offset: Offset(0, 2))
-                  ]),
+                borderRadius: BorderRadius.circular(24),
+                color: Colors.white,
+                boxShadow: const [
+                  BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 4,
+                      spreadRadius: 0.1,
+                      offset: Offset(0, 2))
+                ],
+              ),
               margin: const EdgeInsets.symmetric(horizontal: 18),
               width: double.infinity,
               child: const TransactionList(),

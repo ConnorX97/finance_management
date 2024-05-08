@@ -11,7 +11,7 @@ class _FullChartViewState extends State<FullChartView> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
-      child: Expanded(
+
         child: Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
@@ -27,7 +27,7 @@ class _FullChartViewState extends State<FullChartView> {
           width: double.infinity,
           child: const TransactionList(),
         ),
-      ),
+   //   ),
     );
   }
 }

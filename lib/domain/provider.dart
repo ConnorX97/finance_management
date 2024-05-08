@@ -74,3 +74,4 @@ final class MoneyAppProvider extends ChangeNotifier {
   int financialSupport = 0;
   int otherInc = 0;
 }
+

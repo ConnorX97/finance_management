@@ -44,18 +44,26 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
             widget.isIncome
                 ? ElevatedButton(
                     onPressed: () {
-                      incomeCategorySelect(model, _categ);
-                      model.income();
-                      model.inOutMoneyData(context, true);
-                      Navigator.pop(context);
+                      if (model.sum.text != "") {
+                        incomeCategorySelect(model, _categ);
+                        model.income();
+                        model.inOutMoneyData(context, true);
+                        Navigator.pop(context);
+                      }else{
+                        Navigator.pop(context);
+                      }
                     },
                     child: const Icon(Icons.arrow_downward))
                 : ElevatedButton(
                     onPressed: () {
-                      expenseCategorySelect(model, _categ);
-                      model.outcome();
-                      model.inOutMoneyData(context, false);
-                      Navigator.pop(context);
+                      if (model.sum.text != "") {
+                        expenseCategorySelect(model, _categ);
+                        model.outcome();
+                        model.inOutMoneyData(context, false);
+                        Navigator.pop(context);
+                      } else {
+                        Navigator.pop(context);
+                      }
                     },
                     child: const Icon(Icons.arrow_upward_outlined)),
           ],
@@ -63,7 +71,6 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
       ],
     );
   }
-
 
   DropdownButton<String> expenceCategory() {
     return DropdownButton<String>(
@@ -115,7 +122,10 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
     );
   }
 
-  void expenseCategorySelect(final model, final categ) {
+  void expenseCategorySelect(
+    final model,
+    final String categ,
+  ) {
     if (categ == "Education") {
       model.education += int.parse(model.sum.text);
     } else if (categ == "Entertaiment") {
@@ -136,7 +146,10 @@ class _IncomeAndOutcomeViewState extends State<IncomeAndOutcomeView> {
     }
   }
 
-  void incomeCategorySelect(final model, final categ) {
+  void incomeCategorySelect(
+    final model,
+    final String categ,
+  ) {
     if (categ == "Employment") {
       model.employment += int.parse(model.sum.text);
     } else if (categ == "Investment") {

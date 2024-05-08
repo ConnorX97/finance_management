@@ -78,7 +78,9 @@ class DetailScreen extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: IncomeDetail(model: model),
+                              child: SizedBox(
+                                  width: double.infinity,
+                                  child: IncomeDetail(model: model)),
                             )
                           ],
                         ),
@@ -129,86 +131,38 @@ class ExpenseDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        _buildItem(Colors.blueAccent, "Education", model.education),
+        _buildItem(Colors.purple, "Entertainment", model.entertainment),
+        _buildItem(Colors.greenAccent, "Health & Medical", model.health),
+        _buildItem(Colors.blueGrey, "Groceries", model.groceries),
+        _buildItem(Colors.grey, "Transportation", model.transportation),
+        _buildItem(Colors.green, "Dining", model.dining),
+        _buildItem(Colors.orange, "Clothing", model.clothing),
+        _buildItem(Colors.red, "Other", model.other),
+      ],
+    );
+  }
+
+  Widget _buildItem(Color color, String title, int value) {
+    return Column(
+      children: [
+        8.kH,
         Row(
           children: [
             Container(
-              height: 30,
-              width: 30,
-              color: Colors.blueAccent,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: color,
+              ),
+              height: 25,
+              width: 50,
             ),
-            Text("Education \$ ${model.education}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.purple,
+            12.kW,
+            Text(
+              "$title \$ $value",
             ),
-            Text("Entertainment \$ ${model.entertainment}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.greenAccent,
-            ),
-            Text("Health & Medical \$ ${model.health}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.blueGrey,
-            ),
-            Text("Groceries \$ ${model.groceries}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.grey,
-            ),
-            Text("Transportation \$ ${model.transportation}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.green,
-            ),
-            Text("Dining \$ ${model.dining}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.orange,
-            ),
-            Text("Clothing \$ ${model.clothing}"),
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.red,
-            ),
-            Text("Other \$ ${model.other}"),
           ],
         ),
       ],
@@ -318,70 +272,56 @@ class IncomeCircle extends StatelessWidget {
 
 class IncomeDetail extends StatelessWidget {
   const IncomeDetail({super.key, required this.model});
+
   final MoneyAppProvider model;
+
   @override
   Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildItem(Colors.blueAccent, "Employment", model.employment),
+          _buildItem(Colors.purple, "Investment", model.investment),
+          _buildItem(Colors.greenAccent, "Rental", model.rental),
+          _buildItem(Colors.blueGrey, "Business", model.business),
+          _buildItem(Colors.grey, "Financial support", model.financialSupport),
+          _buildItem(Colors.red, "Other", model.otherInc),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildItem(Color color, String title, int value) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        8.kH,
         Row(
           children: [
             Container(
-              height: 30,
-              width: 30,
-              color: Colors.blueAccent,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: color,
+              ),
+              height: 25,
+              width: 50,
             ),
-            Text("Employment \$ ${model.employment}")
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.purple,
+            12.kW,
+            SizedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    title,
+                  ),
+                  Text(
+                    "\$ $value",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  )
+                ],
+              ),
             ),
-            Text("Investment \$ ${model.investment}")
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.greenAccent,
-            ),
-            Text("Rental \$ ${model.rental}")
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.blueGrey,
-            ),
-            Text("Business \$ ${model.business}")
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.grey,
-            ),
-            Text("Financial support \$ ${model.financialSupport}")
-          ],
-        ),
-        Row(
-          children: [
-            Container(
-              height: 30,
-              width: 30,
-              color: Colors.red,
-            ),
-            Text("Other \$ ${model.otherInc}")
           ],
         ),
       ],
