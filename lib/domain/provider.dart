@@ -31,9 +31,7 @@ final class MoneyAppProvider extends ChangeNotifier {
     }
   }
 
-  int totalBalance = 0;
-  int received = 0;
-  int sent = 0;
+
 
   void income() {
     if (comment.text.isEmpty) {
@@ -58,6 +56,10 @@ final class MoneyAppProvider extends ChangeNotifier {
   }
 
 // need optimization
+  int totalBalance = 0;
+  int received = 0;
+  int sent = 0;
+
   int education = 0;
   int entertainment = 0;
   int health = 0;
