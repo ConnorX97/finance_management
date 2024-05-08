@@ -13,3 +13,5 @@ export 'package:buttons_tabbar/buttons_tabbar.dart';
 export 'package:finance_management/domain/exporters.dart';
 export 'package:fl_chart/fl_chart.dart';
 export 'package:finance_management/views/detailPage.dart';
+export 'package:finance_management/views/widgets/expenseDetail.dart';
+export 'package:finance_management/views/widgets/incomeDetail.dart';
