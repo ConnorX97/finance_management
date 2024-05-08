@@ -160,8 +160,19 @@ class ExpenseDetail extends StatelessWidget {
               width: 50,
             ),
             12.kW,
-            Text(
-              "$title \$ $value",
+            SizedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    title,
+                  ),
+                  Text(
+                    "   -  \$$value",
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  )
+                ],
+              ),
             ),
           ],
         ),
@@ -316,7 +327,7 @@ class IncomeDetail extends StatelessWidget {
                     title,
                   ),
                   Text(
-                    "\$ $value",
+                    "   -  \$$value",
                     style: TextStyle(fontWeight: FontWeight.w600),
                   )
                 ],
